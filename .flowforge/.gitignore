@@ -1,0 +1,18 @@
+# FlowForge temporary files
+session.json
+.current-session
+.current-session.bak
+agent-status.json
+.statusline-cache/
+.statusline-cache.json
+
+# Local developer data
+local/
+dev-*/
+
+# Logs
+logs/
+
+# Temporary files
+*.tmp
+*.log

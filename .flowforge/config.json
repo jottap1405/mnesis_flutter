@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "project": {
+    "name": "volan_flutter",
+    "type": "flutter_app",
+    "created": "2025-11-28",
+    "integrationMode": "complete",
+    "language": "dart",
+    "framework": "flutter"
+  },
+  "enforcement": {
+    "level": "immediate",
+    "startDate": "2025-11-28",
+    "transitionDate": "",
+    "currentPhase": "initial"
+  },
+  "rules": {
+    "enforceTests": true,
+    "requireIssues": true,
+    "documentationRequired": true,
+    "gitFlow": true,
+    "noAIReferences": true
+  },
+  "automation": {
+    "preCommitChecks": true,
+    "autoFormat": true,
+    "updateDocs": true,
+    "timeTracking": true,
+    "completionDetection": true,
+    "smartAggregation": true
+  },
+  "standards": {
+    "testCoverage": 80,
+    "maxFileLength": 700,
+    "commitFormat": "conventional",
+    "docFormat": "dartdoc",
+    "linter": "flutter_analyze"
+  },
+  "providers": {
+    "active": "json",
+    "available": ["json", "github", "notion"]
+  },
+  "v2Features": {
+    "userIsolation": true,
+    "taskMigration": true,
+    "completionDetection": true,
+    "smartAggregation": true,
+    "providerBridge": true
+  },
+  "flutter": {
+    "testDirectory": "test",
+    "libDirectory": "lib",
+    "integrationTestDirectory": "integration_test"
+  }
+}

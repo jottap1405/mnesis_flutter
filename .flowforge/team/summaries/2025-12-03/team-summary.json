@@ -1,0 +1,17 @@
+{
+  "teamId": "dev-team",
+  "aggregatedData": {
+    "totalHours": 13.43,
+    "issueHours": {
+      "20": 13.43
+    },
+    "developers": {
+      "jottap": {
+        "totalHours": 13.31,
+        "roundedHours": 13.43
+      }
+    }
+  },
+  "privacyProtected": true,
+  "rawDataExcluded": ["exactTimes", "sessionDetails"]
+}
