@@ -1,4 +1,4 @@
-# 📚 Volan Flutter - Guia de Documentação
+# 📚 Mnesis Flutter - Guia de Documentação
 
 <div align="center">
 
@@ -310,7 +310,7 @@ final [notifierName]Provider = StateNotifierProvider<[NotifierName], [NotifierNa
 ---
 *📅 Criado em*: [DD MMM YY]
 *📋 Versão*: 1.0
-*👥 Responsável*: Equipe de Desenvolvimento Volan Flutter
+*👥 Responsável*: Equipe de Desenvolvimento Mnesis Flutter
 *🏷️ Tags*: [flutter, riverpod, state-notifier, clean-architecture]
 ```
 
@@ -372,7 +372,7 @@ flowchart LR
 ---
 *📅 Criado em*: [DD MMM YY]
 *📋 Versão*: 1.0
-*👥 Responsável*: Equipe de Desenvolvimento Volan Flutter
+*👥 Responsável*: Equipe de Desenvolvimento Mnesis Flutter
 *🏷️ Tags*: [flutter, repository, data, supabase]
 ```
 
@@ -425,7 +425,7 @@ Either<Failure, [SuccessType]>
 ---
 *📅 Criado em*: [DD MMM YY]
 *📋 Versão*: 1.0
-*👥 Responsável*: Equipe de Desenvolvimento Volan Flutter
+*👥 Responsável*: Equipe de Desenvolvimento Mnesis Flutter
 *🏷️ Tags*: [flutter, usecase, domain, clean-architecture]
 ```
 
@@ -492,7 +492,7 @@ flowchart TD
 ---
 *📅 Criado em*: [DD MMM YY]
 *📋 Versão*: 1.0
-*👥 Responsável*: Equipe de Desenvolvimento Volan Flutter
+*👥 Responsável*: Equipe de Desenvolvimento Mnesis Flutter
 *🏷️ Tags*: [flutter, page, ui, riverpod, state-notifier]
 ```
 
@@ -554,7 +554,7 @@ A: [Resposta clara]
 ---
 *📅 Criado em*: [DD MMM YY]
 *📋 Versão*: 1.0
-*👥 Responsável*: Equipe de Desenvolvimento Volan Flutter
+*👥 Responsável*: Equipe de Desenvolvimento Mnesis Flutter
 *🏷️ Tags*: [guia, usuário, flutter]
 ```
 
@@ -598,5 +598,5 @@ Define o fluxo de trabalho para:
 
 *📅 Criado em*: 28 NOV 25\
 *📋 Versão*: 1.0\
-*👥 Responsável*: Equipe de Desenvolvimento Volan Flutter\
+*👥 Responsável*: Equipe de Desenvolvimento Mnesis Flutter\
 *🏷️ Tags*: [documentação, guia, flutter, dart, templates, nomenclatura, estrutura, mermaid, clean-architecture, riverpod]

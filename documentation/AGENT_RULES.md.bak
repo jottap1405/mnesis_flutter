@@ -1,10 +1,10 @@
-# 🤖 Diretrizes para Agentes de IA - Mnesis Flutter
+# 🤖 Diretrizes para Agentes de IA - Volan Flutter
 
 <div align="center">
 
 ![Tipo](https://img.shields.io/badge/Tipo-AGENTE-yellow?style=for-the-badge)
 ![Versao](https://img.shields.io/badge/Versao-1.0-blue?style=for-the-badge)
-![Projeto](https://img.shields.io/badge/Projeto-Mnesis_Flutter-orange?style=for-the-badge)
+![Projeto](https://img.shields.io/badge/Projeto-Volan_Flutter-red?style=for-the-badge)
 
 </div>
 
@@ -944,5 +944,5 @@ FINALIZAÇÃO:
 
 *📅 Criado em*: 28 NOV 25\
 *📋 Versão*: 1.0\
-*👥 Responsável*: Equipe de Desenvolvimento Mnesis Flutter\
-*🏷️ Tags*: [agente-ia, diretrizes, protocolo-3-opcoes, mnesis-flutter, dart, metodologia-didatica, clean-architecture, riverpod, supabase]
+*👥 Responsável*: Equipe de Desenvolvimento Volan Flutter\
+*🏷️ Tags*: [agente-ia, diretrizes, protocolo-3-opcoes, volan-flutter, dart, metodologia-didatica, clean-architecture, riverpod, supabase]

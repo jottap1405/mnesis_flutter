@@ -1,4 +1,4 @@
-# 📝 Volan Flutter - Guia de Padrões Dart Documentation
+# 📝 Mnesis Flutter - Guia de Padrões Dart Documentation
 
 <div align="center">
 
@@ -768,5 +768,5 @@ static const String constantName = 'value';
 
 *📅 Criado em*: 28 NOV 25\
 *📋 Versão*: 1.0\
-*👥 Responsável*: Equipe de Desenvolvimento Volan Flutter\
+*👥 Responsável*: Equipe de Desenvolvimento Mnesis Flutter\
 *🏷️ Tags*: [dart, documentação, flutter, padrões, boas-práticas, flowforge]
