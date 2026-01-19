@@ -223,17 +223,55 @@ class _DesignSystemTestScreenState extends State<DesignSystemTestScreen> {
                 onChanged: (value) =>
                     setState(() => _checkboxValue = value ?? false),
               ),
-              RadioListTile<int>(
-                title: const Text('Radio Option 1'),
-                value: 1,
-                groupValue: _radioValue,
-                onChanged: (value) => setState(() => _radioValue = value ?? 1),
+              // Radio buttons (custom implementation without deprecated APIs)
+              GestureDetector(
+                onTap: () => setState(() => _radioValue = 1),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+                  decoration: BoxDecoration(
+                    color: _radioValue == 1
+                        ? Theme.of(context).colorScheme.surfaceContainerHighest
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        _radioValue == 1 ? Icons.radio_button_checked : Icons.radio_button_unchecked,
+                        color: _radioValue == 1
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).iconTheme.color,
+                      ),
+                      const SizedBox(width: 16),
+                      const Text('Radio Option 1'),
+                    ],
+                  ),
+                ),
               ),
-              RadioListTile<int>(
-                title: const Text('Radio Option 2'),
-                value: 2,
-                groupValue: _radioValue,
-                onChanged: (value) => setState(() => _radioValue = value ?? 1),
+              const SizedBox(height: 8),
+              GestureDetector(
+                onTap: () => setState(() => _radioValue = 2),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+                  decoration: BoxDecoration(
+                    color: _radioValue == 2
+                        ? Theme.of(context).colorScheme.surfaceContainerHighest
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(
+                        _radioValue == 2 ? Icons.radio_button_checked : Icons.radio_button_unchecked,
+                        color: _radioValue == 2
+                            ? Theme.of(context).colorScheme.primary
+                            : Theme.of(context).iconTheme.color,
+                      ),
+                      const SizedBox(width: 16),
+                      const Text('Radio Option 2'),
+                    ],
+                  ),
+                ),
               ),
             ],
           ),
