@@ -1,1 +1,1363 @@
-{"tasks":[]}
+{
+  "tasks": [
+    {
+      "id": "MNESIS-001",
+      "github_issue": 1,
+      "title": "Task 0.1: Project initialization & dependencies",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "setup",
+      "hours": 4,
+      "week": 1,
+      "dependencies": [],
+      "acceptance_criteria": [
+        "Flutter project created with correct SDK version (3.35.5)",
+        "pubspec.yaml configured with Riverpod, Dio, Retrofit, SQLite",
+        "All dependencies installed successfully",
+        "flutter doctor shows no errors",
+        "Project runs on iOS and Android simulators"
+      ]
+    },
+    {
+      "id": "MNESIS-002",
+      "github_issue": 2,
+      "title": "Task 0.4: Navigation structure (go_router setup)",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "setup",
+      "hours": 4,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-001"
+      ],
+      "acceptance_criteria": [
+        "go_router dependency added and configured",
+        "Route structure defined for main screens",
+        "Route guards for authentication",
+        "Deep linking configured",
+        "Navigation tested between screens"
+      ]
+    },
+    {
+      "id": "MNESIS-003",
+      "github_issue": 3,
+      "title": "Task 0.5: SQLite setup (chat cache ONLY)",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "database",
+      "hours": 2,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-001"
+      ],
+      "acceptance_criteria": [
+        "sqflite dependency added",
+        "Database helper class created",
+        "Messages table schema defined",
+        "Database initialization on app start",
+        "Basic CRUD methods for messages",
+        "Unit tests for database operations"
+      ]
+    },
+    {
+      "id": "MNESIS-004",
+      "github_issue": 4,
+      "title": "Task 0.6: Dio HTTP client configuration",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "api",
+      "hours": 4,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-001",
+        "MNESIS-008"
+      ],
+      "acceptance_criteria": [
+        "Dio dependency added",
+        "DioClient configured with base URL",
+        "Request/response interceptors",
+        "Authentication token interceptor",
+        "Logging interceptor",
+        "Error handling interceptor",
+        "Timeout configuration",
+        "Unit tests"
+      ]
+    },
+    {
+      "id": "MNESIS-005",
+      "github_issue": 5,
+      "title": "Task 0.7: Retrofit API client setup",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "api",
+      "hours": 3,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-006"
+      ],
+      "acceptance_criteria": [
+        "retrofit and retrofit_generator dependencies added",
+        "build_runner configured",
+        "Base API interface created (MnesisApi)",
+        "Code generation tested and working",
+        "Generated files excluded from git",
+        "API client integrated with Dio",
+        "Documentation for adding endpoints"
+      ]
+    },
+    {
+      "id": "MNESIS-006",
+      "github_issue": 6,
+      "title": "Task 0.8: Environment configuration (.env)",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "setup",
+      "hours": 2,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-001"
+      ],
+      "acceptance_criteria": [
+        "flutter_dotenv dependency added",
+        ".env file structure created",
+        "Environment variables for API URLs",
+        "Environment variables for API keys",
+        ".env files excluded from git",
+        "Environment loader in main.dart",
+        "Documentation for setup"
+      ]
+    },
+    {
+      "id": "MNESIS-007",
+      "github_issue": 7,
+      "title": "Task 0.9: CI/CD pipeline setup",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "devops",
+      "hours": 1,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-001"
+      ],
+      "acceptance_criteria": [
+        "GitHub Actions workflow created",
+        "Flutter analyze on pull requests",
+        "Flutter test on pull requests",
+        "Code coverage reporting",
+        "Build verification for iOS and Android",
+        "Workflow documentation"
+      ]
+    },
+    {
+      "id": "MNESIS-008",
+      "github_issue": 8,
+      "title": "Task 1.1: Button Components",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 3,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "Primary button (orange, 48px height)",
+        "Secondary button (outlined, white border)",
+        "Text button (transparent, orange text)",
+        "All states: normal, hover, pressed, disabled, loading",
+        "Ripple effects with orange_20",
+        "Widget tests for all variants"
+      ]
+    },
+    {
+      "id": "MNESIS-009",
+      "github_issue": 9,
+      "title": "Task 1.2: Input Field Component",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 3,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "Background: surfaceDark (#3D4349)",
+        "Border radius: 24px (pill shape)",
+        "Height: 56px",
+        "Focus state: orange border (2px)",
+        "Error state: red border",
+        "Prefix/suffix icon support",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-010",
+      "github_issue": 10,
+      "title": "Task 1.3: Chat Bubble Component",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "ui",
+      "hours": 4,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "AI bubble: dark gray background, left-aligned",
+        "User bubble: transparent, right-aligned",
+        "Max width: 80% of screen",
+        "Padding: 16px horizontal, 12px vertical",
+        "Border radius: 16px",
+        "Timestamp display",
+        "Spacing: 12px (different sender), 4px (same sender)",
+        "Widget tests for both variants"
+      ]
+    },
+    {
+      "id": "MNESIS-011",
+      "github_issue": 11,
+      "title": "Task 1.4: Voice Button Component",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 2,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "Size: 56px \u00d7 56px (circular)",
+        "Background: orange (#FF7043)",
+        "Icon: mic (24px, white)",
+        "Elevation: 4dp shadow",
+        "States: normal, pressed, recording, disabled",
+        "Recording state: pulsing animation",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-012",
+      "github_issue": 12,
+      "title": "Task 1.5: Message Action Buttons",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 2,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-013"
+      ],
+      "acceptance_criteria": [
+        "5 icons: copy, like, dislike, share, more",
+        "Icon size: 20px",
+        "Color: textSecondary (#A0A0A0)",
+        "Tap target: 40px \u00d7 40px",
+        "Spacing: 8px between icons",
+        "Hover state: color change to textPrimary",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-013",
+      "github_issue": 13,
+      "title": "Task 1.6: Suggestion Chips",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 2,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "Background: surfaceDark",
+        "Border radius: 18px (pill)",
+        "Height: 36px",
+        "Padding: 16px horizontal, 8px vertical",
+        "Spacing: 8px between chips",
+        "States: normal, hover, pressed (orange)",
+        "Horizontal scrollable list",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-014",
+      "github_issue": 14,
+      "title": "Task 1.7: Disclaimer Component",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 1,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "Icon: info_outline (14px, textSecondary)",
+        "Text: label style, textSecondary color",
+        "Spacing: 4px between icon and text",
+        "Default text: \"Mnesis can make mistakes. Check important info.\"",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-015",
+      "github_issue": 15,
+      "title": "Task 1.8: Loading Indicators",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 1,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "Circular progress (orange)",
+        "Skeleton loaders for chat bubbles",
+        "Shimmer effect for lists",
+        "Typing indicator (3 dots animation)",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-016",
+      "github_issue": 16,
+      "title": "Task 1.9: Screen Templates",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 2,
+      "week": 1,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "SafeArea wrapper",
+        "Screen padding: 24px horizontal, 16px vertical",
+        "AppBar template (dark theme)",
+        "Bottom navigation placeholder",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-017",
+      "github_issue": 17,
+      "title": "Task 1.10: Component Documentation",
+      "description": "Epic 1 - Design System",
+      "epic": "design-system",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "documentation",
+      "hours": 2,
+      "week": 1,
+      "dependencies": [],
+      "acceptance_criteria": [
+        "Dart doc comments for all components",
+        "Usage examples in documentation",
+        "Screenshots of all components",
+        "Storybook setup (optional)",
+        "README for design system"
+      ]
+    },
+    {
+      "id": "MNESIS-018",
+      "github_issue": 18,
+      "title": "Task 2.1: Chat screen layout",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "ui",
+      "hours": 3,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-019"
+      ],
+      "acceptance_criteria": [
+        "Screen scaffold with AppBar",
+        "Message list area",
+        "Input area at bottom",
+        "SafeArea handling",
+        "Responsive layout",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-019",
+      "github_issue": 19,
+      "title": "Task 2.2: Message list with auto-scroll",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "ui",
+      "hours": 3,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-021",
+        "MNESIS-013"
+      ],
+      "acceptance_criteria": [
+        "ListView.builder for messages",
+        "Auto-scroll to bottom on new message",
+        "Scroll to top loads history",
+        "Reverse list (newest at bottom)",
+        "Smooth scrolling animations",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-020",
+      "github_issue": 20,
+      "title": "Task 2.3: Input area with send/voice",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "ui",
+      "hours": 2,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-012",
+        "MNESIS-014"
+      ],
+      "acceptance_criteria": [
+        "Text input field (multiline support)",
+        "Send button (shows when text present)",
+        "Voice button (shows when text empty)",
+        "Input validation",
+        "Keyboard handling",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-021",
+      "github_issue": 21,
+      "title": "Task 2.4: SSE streaming client",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "api",
+      "hours": 4,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-006"
+      ],
+      "acceptance_criteria": [
+        "SSE connection handler",
+        "Stream parsing for chat deltas",
+        "Connection error handling",
+        "Automatic reconnection",
+        "Stream cancellation",
+        "Unit tests"
+      ]
+    },
+    {
+      "id": "MNESIS-022",
+      "github_issue": 22,
+      "title": "Task 2.5: Real-time message updates",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "api",
+      "hours": 4,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-024"
+      ],
+      "acceptance_criteria": [
+        "StreamProvider for chat messages",
+        "State updates on new deltas",
+        "Message accumulation logic",
+        "Stream error handling",
+        "UI reactivity to state changes",
+        "Unit tests for providers"
+      ]
+    },
+    {
+      "id": "MNESIS-023",
+      "github_issue": 23,
+      "title": "Task 2.6: Voice input integration",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 4,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-014",
+        "MNESIS-023"
+      ],
+      "acceptance_criteria": [
+        "speech_to_text package integrated",
+        "Voice recording UI state",
+        "Real-time transcription display",
+        "Error handling for permissions",
+        "Platform-specific configuration",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-024",
+      "github_issue": 24,
+      "title": "Task 2.7: Message persistence (SQLite)",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "database",
+      "hours": 2,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-005"
+      ],
+      "acceptance_criteria": [
+        "Save messages to SQLite on send/receive",
+        "Load message history on app start",
+        "Session-based message grouping",
+        "Cache cleanup for old messages",
+        "Unit tests for persistence"
+      ]
+    },
+    {
+      "id": "MNESIS-025",
+      "github_issue": 25,
+      "title": "Task 2.8: Error handling for streaming",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "api",
+      "hours": 2,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-024",
+        "MNESIS-025"
+      ],
+      "acceptance_criteria": [
+        "Network error handling",
+        "Timeout handling",
+        "Stream interruption handling",
+        "User-friendly error messages",
+        "Retry mechanisms",
+        "Unit tests for error scenarios"
+      ]
+    },
+    {
+      "id": "MNESIS-026",
+      "github_issue": 26,
+      "title": "Task 2.9: Typing indicator",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 1,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-018"
+      ],
+      "acceptance_criteria": [
+        "3-dot animation",
+        "Shows while AI is generating",
+        "Smooth fade in/out",
+        "Proper positioning in chat",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-027",
+      "github_issue": 27,
+      "title": "Task 2.10: Message actions implementation",
+      "description": "Epic 2 - Chat Interface",
+      "epic": "chat",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 1,
+      "week": 2,
+      "dependencies": [
+        "MNESIS-015"
+      ],
+      "acceptance_criteria": [
+        "Copy to clipboard functionality",
+        "Like/dislike tracking",
+        "Share functionality",
+        "More options menu",
+        "Feedback to user",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-028",
+      "github_issue": 28,
+      "title": "Task 3.1: API contract definition",
+      "description": "Epic 3 - API Integration",
+      "epic": "api-integration",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "api",
+      "hours": 4,
+      "week": 3,
+      "dependencies": [
+        "MNESIS-007"
+      ],
+      "acceptance_criteria": [
+        "All endpoints documented",
+        "Request/response schemas defined",
+        "Authentication flow documented",
+        "Error response formats defined",
+        "API versioning strategy",
+        "Documentation in OpenAPI/Swagger format"
+      ]
+    },
+    {
+      "id": "MNESIS-029",
+      "github_issue": 29,
+      "title": "Task 3.2: Retrofit interfaces",
+      "description": "Epic 3 - API Integration",
+      "epic": "api-integration",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "api",
+      "hours": 4,
+      "week": 3,
+      "dependencies": [
+        "MNESIS-031"
+      ],
+      "acceptance_criteria": [
+        "Chat API interface",
+        "Patient API interface",
+        "Appointment API interface",
+        "Auth API interface",
+        "Code generation successful",
+        "Type-safe models created",
+        "Unit tests for serialization"
+      ]
+    },
+    {
+      "id": "MNESIS-030",
+      "github_issue": 30,
+      "title": "Task 3.3: Authentication flow",
+      "description": "Epic 3 - API Integration",
+      "epic": "api-integration",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "api",
+      "hours": 4,
+      "week": 3,
+      "dependencies": [
+        "MNESIS-032"
+      ],
+      "acceptance_criteria": [
+        "Login endpoint integration",
+        "Token storage (secure storage)",
+        "Token refresh logic",
+        "Auto-logout on token expiry",
+        "Auth state management (Riverpod)",
+        "Route guards",
+        "Unit tests for auth flow"
+      ]
+    },
+    {
+      "id": "MNESIS-031",
+      "github_issue": 31,
+      "title": "Task 3.4: Patient API integration",
+      "description": "Epic 3 - API Integration",
+      "epic": "api-integration",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "api",
+      "hours": 3,
+      "week": 3,
+      "dependencies": [
+        "MNESIS-032"
+      ],
+      "acceptance_criteria": [
+        "GET /api/patients implementation",
+        "POST /api/patients implementation",
+        "PUT /api/patients/{id} implementation",
+        "DELETE /api/patients/{id} implementation",
+        "Riverpod providers for patient data",
+        "Error handling",
+        "Unit tests"
+      ]
+    },
+    {
+      "id": "MNESIS-032",
+      "github_issue": 32,
+      "title": "Task 3.5: Appointment API integration",
+      "description": "Epic 3 - API Integration",
+      "epic": "api-integration",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "api",
+      "hours": 3,
+      "week": 3,
+      "dependencies": [
+        "MNESIS-032"
+      ],
+      "acceptance_criteria": [
+        "GET /api/appointments implementation",
+        "POST /api/appointments implementation",
+        "PUT /api/appointments/{id} implementation",
+        "DELETE /api/appointments/{id} implementation",
+        "Riverpod providers for appointment data",
+        "Error handling",
+        "Unit tests"
+      ]
+    },
+    {
+      "id": "MNESIS-033",
+      "github_issue": 33,
+      "title": "Task 3.6: Error handling & retry logic",
+      "description": "Epic 3 - API Integration",
+      "epic": "api-integration",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "api",
+      "hours": 3,
+      "week": 3,
+      "dependencies": [
+        "MNESIS-006"
+      ],
+      "acceptance_criteria": [
+        "Network error handling",
+        "HTTP status code handling (401, 500, etc.)",
+        "Retry logic with exponential backoff",
+        "User-friendly error messages",
+        "Error logging",
+        "Unit tests for error scenarios"
+      ]
+    },
+    {
+      "id": "MNESIS-034",
+      "github_issue": 34,
+      "title": "Task 3.7: API response caching strategy",
+      "description": "Epic 3 - API Integration",
+      "epic": "api-integration",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "api",
+      "hours": 2,
+      "week": 3,
+      "dependencies": [
+        "MNESIS-006"
+      ],
+      "acceptance_criteria": [
+        "Cache policy defined",
+        "Dio cache interceptor",
+        "Cache invalidation logic",
+        "TTL configuration",
+        "Memory management",
+        "Unit tests"
+      ]
+    },
+    {
+      "id": "MNESIS-035",
+      "github_issue": 35,
+      "title": "Task 3.8: Network status monitoring",
+      "description": "Epic 3 - API Integration",
+      "epic": "api-integration",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "api",
+      "hours": 1,
+      "week": 3,
+      "dependencies": [
+        "MNESIS-006"
+      ],
+      "acceptance_criteria": [
+        "connectivity_plus package integrated",
+        "Network status provider (Riverpod)",
+        "Offline indicator in UI",
+        "Queue requests when offline",
+        "Auto-retry when back online",
+        "Unit tests"
+      ]
+    },
+    {
+      "id": "MNESIS-036",
+      "github_issue": 36,
+      "title": "Task 4.1: Patient list screen",
+      "description": "Epic 4 - Patient Management",
+      "epic": "patients",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 3,
+      "week": 4,
+      "dependencies": [
+        "MNESIS-034",
+        "MNESIS-019"
+      ],
+      "acceptance_criteria": [
+        "List view of patients",
+        "Pull to refresh",
+        "Pagination support",
+        "Empty state handling",
+        "Loading states",
+        "Error states",
+        "Navigation to detail screen",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-037",
+      "github_issue": 37,
+      "title": "Task 4.2: Patient detail screen",
+      "description": "Epic 4 - Patient Management",
+      "epic": "patients",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 3,
+      "week": 4,
+      "dependencies": [
+        "MNESIS-034",
+        "MNESIS-041"
+      ],
+      "acceptance_criteria": [
+        "Display all patient fields",
+        "Edit button navigation",
+        "Delete confirmation dialog",
+        "Loading states",
+        "Error states",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-038",
+      "github_issue": 38,
+      "title": "Task 4.3: Create/Edit patient form",
+      "description": "Epic 4 - Patient Management",
+      "epic": "patients",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 4,
+      "week": 4,
+      "dependencies": [
+        "MNESIS-034",
+        "MNESIS-012"
+      ],
+      "acceptance_criteria": [
+        "All patient fields as inputs",
+        "Form validation (basic)",
+        "Save button with loading state",
+        "Cancel button",
+        "Success/error feedback",
+        "Navigation after save",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-039",
+      "github_issue": 39,
+      "title": "Task 4.4: Search & filter UI",
+      "description": "Epic 4 - Patient Management",
+      "epic": "patients",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 2,
+      "week": 4,
+      "dependencies": [
+        "MNESIS-041"
+      ],
+      "acceptance_criteria": [
+        "Search bar in patient list",
+        "Real-time search (debounced)",
+        "Filter options (status, date, etc.)",
+        "Clear filters button",
+        "Search state persists",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-040",
+      "github_issue": 40,
+      "title": "Task 4.5: Patient card component",
+      "description": "Epic 4 - Patient Management",
+      "epic": "patients",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 2,
+      "week": 4,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "Display patient name, ID, status",
+        "Avatar or placeholder icon",
+        "Tap to navigate to detail",
+        "Long press for quick actions",
+        "Consistent styling",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-041",
+      "github_issue": 41,
+      "title": "Task 4.6: Loading & error states",
+      "description": "Epic 4 - Patient Management",
+      "epic": "patients",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 2,
+      "week": 4,
+      "dependencies": [
+        "MNESIS-018",
+        "MNESIS-041"
+      ],
+      "acceptance_criteria": [
+        "Loading skeletons for list",
+        "Loading indicators for forms",
+        "Error messages for failed API calls",
+        "Retry buttons on errors",
+        "Empty state illustrations",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-042",
+      "github_issue": 42,
+      "title": "Task 5.1: Appointment list screen",
+      "description": "Epic 5 - Appointment Management",
+      "epic": "appointments",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 3,
+      "week": 5,
+      "dependencies": [
+        "MNESIS-035",
+        "MNESIS-019"
+      ],
+      "acceptance_criteria": [
+        "List view of appointments",
+        "Pull to refresh",
+        "Filter by date/status",
+        "Empty state handling",
+        "Loading states",
+        "Error states",
+        "Navigation to detail screen",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-043",
+      "github_issue": 43,
+      "title": "Task 5.2: Calendar view component",
+      "description": "Epic 5 - Appointment Management",
+      "epic": "appointments",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 4,
+      "week": 5,
+      "dependencies": [
+        "MNESIS-035"
+      ],
+      "acceptance_criteria": [
+        "Month view with appointments",
+        "Week/day view option",
+        "Tap date to filter appointments",
+        "Visual indicators for busy days",
+        "Navigation between months",
+        "Integration with appointment data",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-044",
+      "github_issue": 44,
+      "title": "Task 5.3: Create/Edit appointment form",
+      "description": "Epic 5 - Appointment Management",
+      "epic": "appointments",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 4,
+      "week": 5,
+      "dependencies": [
+        "MNESIS-035",
+        "MNESIS-012"
+      ],
+      "acceptance_criteria": [
+        "Date/time picker",
+        "Patient selection",
+        "Appointment type selection",
+        "Notes field",
+        "Form validation (basic)",
+        "Save button with loading state",
+        "Success/error feedback",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-045",
+      "github_issue": 45,
+      "title": "Task 5.4: Appointment detail screen",
+      "description": "Epic 5 - Appointment Management",
+      "epic": "appointments",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 2,
+      "week": 5,
+      "dependencies": [
+        "MNESIS-035",
+        "MNESIS-051"
+      ],
+      "acceptance_criteria": [
+        "Display all appointment fields",
+        "Patient information",
+        "Edit button navigation",
+        "Cancel appointment option",
+        "Loading states",
+        "Error states",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-046",
+      "github_issue": 46,
+      "title": "Task 5.5: Reminder notifications",
+      "description": "Epic 5 - Appointment Management",
+      "epic": "appointments",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 2,
+      "week": 5,
+      "dependencies": [
+        "MNESIS-035"
+      ],
+      "acceptance_criteria": [
+        "firebase_messaging integration",
+        "Notification permissions",
+        "Local notification scheduling",
+        "Notification tap handling",
+        "Notification settings",
+        "Testing on iOS and Android"
+      ]
+    },
+    {
+      "id": "MNESIS-047",
+      "github_issue": 47,
+      "title": "Task 5.6: Loading & error states",
+      "description": "Epic 5 - Appointment Management",
+      "epic": "appointments",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 1,
+      "week": 5,
+      "dependencies": [
+        "MNESIS-018",
+        "MNESIS-051"
+      ],
+      "acceptance_criteria": [
+        "Loading skeletons for list/calendar",
+        "Loading indicators for forms",
+        "Error messages for failed API calls",
+        "Retry buttons on errors",
+        "Empty state illustrations",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-048",
+      "github_issue": 48,
+      "title": "Task 6.1: End-to-end testing",
+      "description": "Epic 6 - Polish & Production",
+      "epic": "polish",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "testing",
+      "hours": 4,
+      "week": 6,
+      "dependencies": [],
+      "acceptance_criteria": [
+        "E2E test for chat flow",
+        "E2E test for patient creation",
+        "E2E test for appointment scheduling",
+        "E2E test for authentication",
+        "CI integration for E2E tests",
+        "Test documentation"
+      ]
+    },
+    {
+      "id": "MNESIS-049",
+      "github_issue": 49,
+      "title": "Task 6.2: Performance optimization",
+      "description": "Epic 6 - Polish & Production",
+      "epic": "polish",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 3,
+      "week": 6,
+      "dependencies": [],
+      "acceptance_criteria": [
+        "Profile app with DevTools",
+        "Optimize widget rebuilds",
+        "Image optimization",
+        "List view performance",
+        "Reduce app size",
+        "60 FPS on mid-range devices",
+        "Performance benchmarks"
+      ]
+    },
+    {
+      "id": "MNESIS-050",
+      "github_issue": 50,
+      "title": "Task 6.3: Accessibility audit",
+      "description": "Epic 6 - Polish & Production",
+      "epic": "polish",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "ui",
+      "hours": 3,
+      "week": 6,
+      "dependencies": [],
+      "acceptance_criteria": [
+        "All interactive elements have semantic labels",
+        "Screen reader support tested",
+        "Contrast ratios meet WCAG AA",
+        "Font scaling support",
+        "Keyboard navigation (where applicable)",
+        "Accessibility testing documentation"
+      ]
+    },
+    {
+      "id": "MNESIS-051",
+      "github_issue": 51,
+      "title": "Task 6.4: Error logging & monitoring",
+      "description": "Epic 6 - Polish & Production",
+      "epic": "polish",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "high",
+      "type": "setup",
+      "hours": 2,
+      "week": 6,
+      "dependencies": [
+        "MNESIS-008"
+      ],
+      "acceptance_criteria": [
+        "Sentry or Firebase Crashlytics integrated",
+        "Error reporting for uncaught exceptions",
+        "Custom error events",
+        "User context in error reports",
+        "Performance monitoring",
+        "Dashboard configuration"
+      ]
+    },
+    {
+      "id": "MNESIS-052",
+      "github_issue": 52,
+      "title": "Task 6.5: User onboarding flow",
+      "description": "Epic 6 - Polish & Production",
+      "epic": "polish",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "ui",
+      "hours": 3,
+      "week": 6,
+      "dependencies": [],
+      "acceptance_criteria": [
+        "Welcome screens",
+        "Feature highlights",
+        "Permission requests (mic, notifications)",
+        "Skip option",
+        "Don't show again logic",
+        "Widget tests"
+      ]
+    },
+    {
+      "id": "MNESIS-053",
+      "github_issue": 53,
+      "title": "Task 6.6: Production deployment",
+      "description": "Epic 6 - Polish & Production",
+      "epic": "polish",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "setup",
+      "hours": 2,
+      "week": 6,
+      "dependencies": [],
+      "acceptance_criteria": [
+        "iOS App Store build",
+        "Android Play Store build",
+        "Release notes prepared",
+        "App signing configured",
+        "Production environment variables",
+        "Deployment documentation"
+      ]
+    },
+    {
+      "id": "MNESIS-054",
+      "github_issue": 54,
+      "title": "Task 6.7: Documentation finalization",
+      "description": "Epic 6 - Polish & Production",
+      "epic": "polish",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "medium",
+      "type": "documentation",
+      "hours": 1,
+      "week": 6,
+      "dependencies": [],
+      "acceptance_criteria": [
+        "README.md updated with setup instructions",
+        "API documentation complete",
+        "Architecture documentation updated",
+        "Deployment guide finalized",
+        "User documentation created",
+        "Code comments reviewed"
+      ]
+    },
+    {
+      "id": "MNESIS-055",
+      "github_issue": 55,
+      "title": "Task 0.2: Design system constants",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "ui",
+      "hours": 6,
+      "week": 6,
+      "dependencies": [
+        "MNESIS-001"
+      ],
+      "acceptance_criteria": [
+        "MnesisColors class with all color constants (orange, backgrounds, text colors)",
+        "MnesisTextStyles class with all typography styles (heading, body, label)",
+        "MnesisSpacings class with spacing constants (4px - 48px)",
+        "Dark theme color palette implemented",
+        "All constants documented with Dart docs",
+        "Unit tests for color accessibility"
+      ]
+    },
+    {
+      "id": "MNESIS-056",
+      "github_issue": 56,
+      "title": "Task 0.3: Core theme configuration",
+      "description": "Sprint 0",
+      "epic": "sprint-0",
+      "milestone": "Sprint 0: Foundation (Week 1)",
+      "status": "pending",
+      "priority": "critical",
+      "type": "ui",
+      "hours": 4,
+      "week": 6,
+      "dependencies": [
+        "MNESIS-002"
+      ],
+      "acceptance_criteria": [
+        "ThemeData configured with dark theme colors",
+        "Material 3 enabled",
+        "Custom text theme applied",
+        "Button themes configured",
+        "Input decoration theme configured",
+        "Theme applied globally in MaterialApp",
+        "Visual verification on test screens"
+      ]
+    }
+  ]
+}
