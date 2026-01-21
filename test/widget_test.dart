@@ -9,11 +9,12 @@ void main() {
     await tester.pumpWidget(const MnesisApp());
     await tester.pumpAndSettle(); // Wait for all animations to complete
 
-    // Verify that the design system test screen loads
-    expect(find.text('Mnesis Design System'), findsOneWidget);
+    // Verify that the chat screen loads (initial route)
+    expect(find.text('Chat'), findsWidgets);
 
-    // Verify that key sections are present (ListView content)
-    expect(find.text('Typography'), findsOneWidget);
-    expect(find.text('Buttons'), findsOneWidget);
+    // Verify that bottom navigation is present
+    expect(find.text('Novo'), findsOneWidget);
+    expect(find.text('Operação'), findsOneWidget);
+    expect(find.text('Admin'), findsOneWidget);
   });
 }

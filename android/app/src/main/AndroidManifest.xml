@@ -24,6 +24,65 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+            <!-- Deep linking with custom scheme: mnesis:// -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <!-- Custom scheme for mnesis:// links -->
+                <data android:scheme="mnesis"
+                      android:host="chat"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="mnesis"
+                      android:host="new"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="mnesis"
+                      android:host="operation"/>
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <data android:scheme="mnesis"
+                      android:host="admin"/>
+            </intent-filter>
+
+            <!-- App Links (verified HTTPS deep links) -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+
+                <!-- HTTPS scheme for https://mnesis.app links -->
+                <data android:scheme="https"
+                      android:host="mnesis.app"
+                      android:pathPrefix="/chat"/>
+                <data android:scheme="https"
+                      android:host="mnesis.app"
+                      android:pathPrefix="/new"/>
+                <data android:scheme="https"
+                      android:host="mnesis.app"
+                      android:pathPrefix="/operation"/>
+                <data android:scheme="https"
+                      android:host="mnesis.app"
+                      android:pathPrefix="/admin"/>
+            </intent-filter>
         </activity>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
