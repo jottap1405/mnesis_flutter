@@ -1,8 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+import 'core/database/database_helper.dart';
 import 'core/design_system/mnesis_theme.dart';
 import 'core/router/app_router_simple.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize database
+  try {
+    final db = DatabaseHelper.instance;
+    await db.database; // Force initialization
+    Logger().i('📦 Database initialized successfully');
+  } catch (e, stackTrace) {
+    Logger().e('❌ Database initialization failed', error: e, stackTrace: stackTrace);
+  }
+
   runApp(const MnesisApp());
 }
 
