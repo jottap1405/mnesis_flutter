@@ -65,7 +65,7 @@ void main() {
         // Verify we have a ShellRoute and a standalone GoRoute
         expect(routes.any((r) => r is ShellRoute), isTrue,
             reason: 'Should have a ShellRoute for bottom navigation');
-        expect(routes.any((r) => r is GoRoute && (r as GoRoute).path == RoutePaths.notFound), isTrue,
+        expect(routes.any((r) => r is GoRoute && r.path == RoutePaths.notFound), isTrue,
             reason: 'Should have notFound route');
       });
     });

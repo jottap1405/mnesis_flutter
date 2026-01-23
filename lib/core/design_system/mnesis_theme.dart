@@ -23,6 +23,8 @@
 /// )
 /// ```
 
+library;
+
 export 'theme/button_themes.dart';
 export 'theme/color_scheme.dart';
 export 'theme/component_themes.dart';

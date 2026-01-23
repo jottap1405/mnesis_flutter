@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mnesis_flutter/core/design_system/mnesis_colors.dart';
 import 'package:mnesis_flutter/core/design_system/mnesis_theme.dart';
-import 'package:mnesis_flutter/core/design_system/theme/theme_validation.dart';
 
 void main() {
   group('MnesisTheme - Refactored Theme Tests', () {

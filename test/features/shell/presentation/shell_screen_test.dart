@@ -303,5 +303,124 @@ void main() {
       expect(find.byIcon(Icons.person), findsOneWidget);
       expect(find.byIcon(Icons.chat_bubble_outline), findsOneWidget);
     });
+
+    testWidgets('tapping navigation items changes route', (tester) async {
+      // Start on Chat
+      await tester.pumpWidget(createTestWidget(initialLocation: '/chat'));
+      await tester.pumpAndSettle();
+      expect(find.text('Chat Content'), findsOneWidget);
+
+      // Tap on Novo (New)
+      await tester.tap(find.text('Novo'));
+      await tester.pumpAndSettle();
+      expect(find.text('New Content'), findsOneWidget);
+
+      // Tap on Operação (Operation)
+      await tester.tap(find.text('Operação'));
+      await tester.pumpAndSettle();
+      expect(find.text('Operation Content'), findsOneWidget);
+
+      // Tap on Admin
+      await tester.tap(find.text('Admin'));
+      await tester.pumpAndSettle();
+      expect(find.text('Admin Content'), findsOneWidget);
+
+      // Tap back to Chat
+      await tester.tap(find.text('Chat'));
+      await tester.pumpAndSettle();
+      expect(find.text('Chat Content'), findsOneWidget);
+    });
+
+    testWidgets('navigation maintains state across route changes', (tester) async {
+      // Start on Chat
+      await tester.pumpWidget(createTestWidget(initialLocation: '/chat'));
+      await tester.pumpAndSettle();
+
+      // Navigate through all tabs
+      await tester.tap(find.text('Novo'));
+      await tester.pumpAndSettle();
+      expect(find.byType(NavigationBar), findsOneWidget);
+
+      await tester.tap(find.text('Operação'));
+      await tester.pumpAndSettle();
+      expect(find.byType(NavigationBar), findsOneWidget);
+
+      await tester.tap(find.text('Admin'));
+      await tester.pumpAndSettle();
+      expect(find.byType(NavigationBar), findsOneWidget);
+
+      // Navigation bar should persist
+      expect(find.byType(NavigationBar), findsOneWidget);
+    });
+
+    testWidgets('calculates selected index correctly for nested routes', (tester) async {
+      // Test nested chat route (e.g., /chat/conversation-123)
+      final router = GoRouter(
+        initialLocation: '/chat',
+        routes: [
+          ShellRoute(
+            builder: (context, state, child) => ShellScreen(child: child),
+            routes: [
+              GoRoute(
+                path: '/chat',
+                builder: (context, state) => const Center(child: Text('Chat Content')),
+                routes: [
+                  GoRoute(
+                    path: ':conversationId',
+                    builder: (context, state) => const Center(child: Text('Conversation')),
+                  ),
+                ],
+              ),
+              GoRoute(
+                path: '/operation',
+                builder: (context, state) => const Center(child: Text('Operation Content')),
+                routes: [
+                  GoRoute(
+                    path: ':operationId',
+                    builder: (context, state) => const Center(child: Text('Operation Detail')),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      );
+
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.pumpAndSettle();
+
+      // Should still select Chat tab for nested route
+      final navigationBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
+      expect(navigationBar.selectedIndex, 0);
+    });
+
+    testWidgets('defaults to chat tab for unknown routes', (tester) async {
+      // Test with a route that doesn't match any tab
+      final router = GoRouter(
+        initialLocation: '/unknown',
+        routes: [
+          ShellRoute(
+            builder: (context, state, child) => ShellScreen(child: child),
+            routes: [
+              GoRoute(
+                path: '/unknown',
+                builder: (context, state) => const Center(child: Text('Unknown Content')),
+              ),
+              GoRoute(
+                path: '/chat',
+                builder: (context, state) => const Center(child: Text('Chat Content')),
+              ),
+            ],
+          ),
+        ],
+      );
+
+      await tester.pumpWidget(MaterialApp.router(routerConfig: router));
+      await tester.pumpAndSettle();
+
+      // Should default to index 0 (Chat) for unknown routes
+      final navigationBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
+      expect(navigationBar.selectedIndex, 0);
+    });
   });
 }

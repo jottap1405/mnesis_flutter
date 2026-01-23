@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mnesis_flutter/core/design_system/mnesis_colors.dart';
 import 'package:mnesis_flutter/core/design_system/mnesis_theme.dart';
-import 'package:mnesis_flutter/core/design_system/theme/theme_validation.dart';
 
 /// Test suite for MnesisThemeValidation.
 ///
@@ -256,7 +255,7 @@ void main() {
 
       test('handles colors with alpha channel', () {
         final ratio = MnesisThemeValidation.calculateContrastRatio(
-          MnesisColors.primaryOrange.withOpacity(0.5),
+          MnesisColors.primaryOrange.withValues(alpha: 127),
           MnesisColors.backgroundDark,
         );
         expect(ratio, greaterThanOrEqualTo(1.0));

@@ -514,9 +514,9 @@ void main() {
       test('handles onCreate callback properly', () async {
         // Arrange
         when(() => mockDatabase.execute(DatabaseConstants.createMessagesTable))
-            .thenAnswer((_) async => null);
+            .thenAnswer((_) async {});
         when(() => mockDatabase.execute(DatabaseConstants.createSessionTimestampIndex))
-            .thenAnswer((_) async => null);
+            .thenAnswer((_) async {});
 
         // Act
         await dbHelper.onCreate(mockDatabase, 1);
