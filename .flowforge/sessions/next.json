@@ -1,20 +1,20 @@
 {
   "lastSession": {
-    "taskId": "55",
-    "taskTitle": "Task 0.2: Design system constants",
-    "endTime": "2026-01-19T17:26:44.3NZ",
-    "duration": "-2h -46m",
-    "branch": "feature/55-design-system",
-    "commits": 6
+    "taskId": "56",
+    "taskTitle": "Task 0.3: Core theme configuration",
+    "endTime": "2026-01-19T18:14:02.3NZ",
+    "duration": "-3h -29m",
+    "branch": "feature/56-core-theme",
+    "commits": 8
   },
   "suggestions": {
-    "continueTask": 55,
+    "continueTask": 56,
     "pendingTasks": [],
-    "lastBranch": "feature/55-design-system"
+    "lastBranch": "feature/56-core-theme"
   },
   "quickStart": [
-    "/flowforge:session:start 55",
-    "git checkout feature/55-design-system",
+    "/flowforge:session:start 56",
+    "git checkout feature/56-core-theme",
     "/flowforge:dev:checkrules"
   ]
 }

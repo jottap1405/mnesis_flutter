@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./run_ff_command.sh:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh project list:*)",
+      "Bash(git for-each-ref:*)",
+      "Bash(gh auth:*)",
+      "Bash(gh label:*)",
+      "Bash(git show:*)",
+      "Bash(gh issue:*)",
+      "Bash(gh pr list:*)",
+      "Bash(rm:*)",
+      "Bash(cat:*)",
+      "Read(//Users/jottap/Downloads/**)",
+      "Bash(gh api:*)",
+      "Bash(./gradlew test:*)",
+      "Bash(./gradlew:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

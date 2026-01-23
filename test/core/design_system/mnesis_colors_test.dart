@@ -1,12 +1,13 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mnesis_flutter/core/design_system/mnesis_colors.dart';
+
+import '../../helpers/accessibility_test_helpers.dart';
 
 void main() {
   group('MnesisColors - WCAG Accessibility Tests', () {
     group('Contrast Ratio Tests', () {
       test('textPrimary on backgroundDark meets WCAG AAA (12.5:1)', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textPrimary,
           MnesisColors.backgroundDark,
         );
@@ -19,7 +20,7 @@ void main() {
       });
 
       test('textPrimary on surfaceDark meets WCAG AAA (10.2:1)', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textPrimary,
           MnesisColors.surfaceDark,
         );
@@ -31,7 +32,7 @@ void main() {
       });
 
       test('textSecondary on backgroundDark meets WCAG AA', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textSecondary,
           MnesisColors.backgroundDark,
         );
@@ -44,7 +45,7 @@ void main() {
       });
 
       test('primaryOrange on backgroundDark meets WCAG AA (4.8:1)', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.primaryOrange,
           MnesisColors.backgroundDark,
         );
@@ -57,7 +58,7 @@ void main() {
       });
 
       test('textOnOrange on primaryOrange is visible', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textOnOrange,
           MnesisColors.primaryOrange,
         );
@@ -69,7 +70,7 @@ void main() {
       });
 
       test('textTertiary on backgroundDark is de-emphasized', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textTertiary,
           MnesisColors.backgroundDark,
         );
@@ -81,7 +82,7 @@ void main() {
       });
 
       test('error on backgroundDark is visible', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.error,
           MnesisColors.backgroundDark,
         );
@@ -92,7 +93,7 @@ void main() {
       });
 
       test('success on backgroundDark is visible', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.success,
           MnesisColors.backgroundDark,
         );
@@ -103,7 +104,7 @@ void main() {
       });
 
       test('warning on backgroundDark is visible', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.warning,
           MnesisColors.backgroundDark,
         );
@@ -167,12 +168,12 @@ void main() {
       });
 
       test('chat bubbles have sufficient contrast with text', () {
-        final userRatio = _calculateContrastRatio(
+        final userRatio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textPrimary,
           MnesisColors.userBubble,
         );
 
-        final assistantRatio = _calculateContrastRatio(
+        final assistantRatio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textPrimary,
           MnesisColors.assistantBubble,
         );
@@ -186,7 +187,7 @@ void main() {
 
     group('Border Color Tests', () {
       test('borderDefault is visible on backgroundDark', () {
-        final ratio = _calculateContrastRatio(
+        final ratio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.borderDefault,
           MnesisColors.backgroundDark,
         );
@@ -198,12 +199,12 @@ void main() {
       });
 
       test('borderSubtle is less contrasted than borderDefault', () {
-        final subtleRatio = _calculateContrastRatio(
+        final subtleRatio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.borderSubtle,
           MnesisColors.backgroundDark,
         );
 
-        final defaultRatio = _calculateContrastRatio(
+        final defaultRatio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.borderDefault,
           MnesisColors.backgroundDark,
         );
@@ -213,12 +214,12 @@ void main() {
       });
 
       test('borderStrong is more contrasted than borderDefault', () {
-        final strongRatio = _calculateContrastRatio(
+        final strongRatio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.borderStrong,
           MnesisColors.backgroundDark,
         );
 
-        final defaultRatio = _calculateContrastRatio(
+        final defaultRatio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.borderDefault,
           MnesisColors.backgroundDark,
         );
@@ -239,12 +240,12 @@ void main() {
       });
 
       test('textDisabled is less contrasted than textPrimary', () {
-        final disabledRatio = _calculateContrastRatio(
+        final disabledRatio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textDisabled,
           MnesisColors.backgroundDark,
         );
 
-        final primaryRatio = _calculateContrastRatio(
+        final primaryRatio = AccessibilityTestHelpers.calculateContrastRatio(
           MnesisColors.textPrimary,
           MnesisColors.backgroundDark,
         );
@@ -284,27 +285,3 @@ void main() {
   });
 }
 
-// ============================================================================
-// HELPER FUNCTIONS
-// ============================================================================
-
-/// Calculates WCAG contrast ratio between two colors.
-///
-/// Formula: (L1 + 0.05) / (L2 + 0.05)
-/// where L1 is luminance of lighter color, L2 is luminance of darker color.
-///
-/// Returns ratio between 1:1 (no contrast) and 21:1 (maximum contrast).
-///
-/// WCAG Standards:
-/// - **AAA**: 7:1 (normal text), 4.5:1 (large text)
-/// - **AA**: 4.5:1 (normal text), 3:1 (large text)
-/// - **UI Components**: 3:1
-double _calculateContrastRatio(Color foreground, Color background) {
-  final fgLuminance = foreground.computeLuminance();
-  final bgLuminance = background.computeLuminance();
-
-  final lighter = fgLuminance > bgLuminance ? fgLuminance : bgLuminance;
-  final darker = fgLuminance > bgLuminance ? bgLuminance : fgLuminance;
-
-  return (lighter + 0.05) / (darker + 0.05);
-}

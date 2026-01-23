@@ -1,0 +1,19 @@
+{
+  "services": {
+    "aggregation": {
+      "enabled": true,
+      "interval": 300000,
+      "batchSize": 50
+    },
+    "detection": {
+      "enabled": true,
+      "interval": 30000,
+      "confidenceThreshold": 0.7
+    },
+    "recovery": {
+      "enabled": true,
+      "interval": 3600000,
+      "maxRetries": 3
+    }
+  }
+}

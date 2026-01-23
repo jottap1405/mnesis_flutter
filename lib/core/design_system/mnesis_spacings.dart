@@ -207,6 +207,16 @@ class MnesisSpacings {
   static const double buttonSmallPaddingHorizontal = lg;
   static const double buttonSmallPaddingVertical = sm;
 
+  /// Standard button height.
+  ///
+  /// Use for:
+  /// - Primary buttons
+  /// - Secondary buttons
+  /// - Text buttons
+  ///
+  /// **Size**: 48px (Material Design minimum touch target)
+  static const double buttonHeight = 48.0;
+
   /// Icon button padding/size.
   ///
   /// **Size**: 48px (minimum tap target)
@@ -220,6 +230,39 @@ class MnesisSpacings {
   static const double iconSizeSmall = lg;
   static const double iconSizeMedium = xl;
   static const double iconSizeLarge = xl2;
+
+  /// Icon size for buttons.
+  ///
+  /// Use for:
+  /// - Button icons
+  ///
+  /// **Size**: 20px
+  static const double iconSizeButton = 20.0;
+
+  /// Loading indicator size for buttons.
+  ///
+  /// Use for:
+  /// - Button loading states (CircularProgressIndicator)
+  ///
+  /// **Size**: 20px
+  static const double progressIndicatorSize = 20.0;
+
+  /// Loading indicator stroke width.
+  ///
+  /// Use for:
+  /// - CircularProgressIndicator strokeWidth
+  ///
+  /// **Size**: 2px
+  static const double progressIndicatorStroke = 2.0;
+
+  /// Border width for outlined buttons.
+  ///
+  /// Use for:
+  /// - Secondary button borders
+  /// - Outlined components
+  ///
+  /// **Size**: 1.5px
+  static const double borderWidthButton = 1.5;
 
   /// Screen edge padding.
   ///
@@ -312,6 +355,15 @@ class MnesisSpacings {
   /// **Size**: 999px (ensures fully rounded regardless of size)
   static const double radiusPill = 999.0;
 
+  /// Alias for large border radius (pill-shaped buttons).
+  ///
+  /// Use for:
+  /// - Button components
+  /// - Pill-shaped elements
+  ///
+  /// **Size**: 24px (same as radiusXl)
+  static const double borderRadiusLg = radiusXl;
+
   /// Circular border radius (50% of size).
   ///
   /// Use for:
@@ -366,4 +418,35 @@ class MnesisSpacings {
   ///
   /// **Size**: 16px
   static const double elevation4 = 16.0;
+
+  // ============================================================================
+  // UI COMPONENT SIZES
+  // ============================================================================
+
+  /// Navigation bar height (Material Design recommendation).
+  ///
+  /// Use for:
+  /// - Bottom navigation bar
+  /// - Custom navigation components
+  ///
+  /// **Size**: 80px
+  static const double navigationBarHeight = 80.0;
+
+  /// Color swatch preview size for design system showcase.
+  ///
+  /// Use for:
+  /// - Color palette displays
+  /// - Design system previews
+  ///
+  /// **Size**: 48px
+  static const double colorSwatchSize = 48.0;
+
+  /// Minimum touch target size for accessibility (Material Design recommendation).
+  ///
+  /// Use for:
+  /// - Clickable areas
+  /// - Interactive components
+  ///
+  /// **Size**: 48px
+  static const double minTouchTarget = 48.0;
 }

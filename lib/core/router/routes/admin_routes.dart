@@ -3,6 +3,7 @@ import '../../../features/admin/presentation/admin_screen.dart';
 import '../../../features/admin/presentation/profile_screen.dart';
 import '../../../features/admin/presentation/settings_screen.dart';
 import '../../../features/admin/presentation/about_screen.dart';
+import '../../design_system/design_system_test_screen.dart';
 
 /// Admin feature route definitions.
 ///
@@ -42,6 +43,9 @@ class AdminRoutes {
   /// Path for about screen.
   static const String about = '/admin/about';
 
+  /// Path for design system test screen.
+  static const String designSystem = '/admin/design-system';
+
   /// Route definitions.
   static final List<RouteBase> routes = [
     GoRoute(
@@ -68,6 +72,13 @@ class AdminRoutes {
           path: 'about',
           name: 'admin-about',
           builder: (context, state) => const AboutScreen(),
+        ),
+
+        // Nested route: design system test
+        GoRoute(
+          path: 'design-system',
+          name: 'admin-design-system',
+          builder: (context, state) => const DesignSystemTestScreen(),
         ),
       ],
     ),

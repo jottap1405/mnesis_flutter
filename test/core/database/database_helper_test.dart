@@ -514,13 +514,17 @@ void main() {
       test('handles onCreate callback properly', () async {
         // Arrange
         when(() => mockDatabase.execute(DatabaseConstants.createMessagesTable))
-            .thenAnswer((_) async => {});
+            .thenAnswer((_) async => null);
+        when(() => mockDatabase.execute(DatabaseConstants.createSessionTimestampIndex))
+            .thenAnswer((_) async => null);
 
         // Act
         await dbHelper.onCreate(mockDatabase, 1);
 
         // Assert
         verify(() => mockDatabase.execute(DatabaseConstants.createMessagesTable))
+            .called(1);
+        verify(() => mockDatabase.execute(DatabaseConstants.createSessionTimestampIndex))
             .called(1);
       });
 
@@ -540,7 +544,7 @@ void main() {
     group('close database', () {
       test('successfully closes database connection', () async {
         // Arrange
-        when(() => mockDatabase.close()).thenAnswer((_) async => {});
+        when(() => mockDatabase.close()).thenAnswer((_) async {});
 
         // Act
         await dbHelper.close();

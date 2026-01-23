@@ -1,0 +1,105 @@
+{
+  "sessions": {},
+  "metadata": {
+    "created": "2025-10-08T21:45:23Z",
+    "version": "2.0.0",
+    "project": "volan_android"
+  },
+  "69": {
+    "status": "completed",
+    "current_session": null,
+    "sessions": [
+      {
+        "start": "2025-10-08T21:47:10Z",
+        "end": "2025-10-09T00:02:00Z",
+        "duration": 8090,
+        "user": "jottap",
+        "instance_id": "jottap@Mac-mini-de-Jotta.local:68277:1759960030",
+        "notes": "Issue #69 completed - Race condition fixed with coroutineScope + awaitAll"
+      }
+    ],
+    "total_time": 8090,
+    "billable_hours": 2.25
+  },
+  "72": {
+    "status": "active",
+    "current_session": {
+      "start": "2025-10-09T20:58:41Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:72861:1760043521"
+    },
+    "sessions": []
+  },
+  "77": {
+    "status": "active",
+    "current_session": {
+      "start": "2025-10-29T21:01:48Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:48852:1761771708"
+    },
+    "sessions": []
+  },
+  "78": {
+    "status": "active",
+    "current_session": {
+      "start": "2025-10-31T04:28:24Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:90715:1761884904"
+    },
+    "sessions": []
+  },
+  "80": {
+    "status": "active",
+    "current_session": {
+      "start": "2025-11-16T23:53:16Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:60085:1763337196"
+    },
+    "sessions": []
+  },
+  "81": {
+    "status": "active",
+    "current_session": {
+      "start": "2025-11-24T19:39:02Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:32002:1764013142"
+    },
+    "sessions": []
+  },
+  "108": {
+    "status": "active",
+    "current_session": {
+      "start": "2025-12-11T18:33:27Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:26107:1765478007"
+    },
+    "sessions": []
+  },
+  "110": {
+    "status": "active",
+    "current_session": {
+      "start": "2025-12-23T18:16:33Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:87232:1766513793"
+    },
+    "sessions": []
+  },
+  "139": {
+    "status": "active",
+    "current_session": {
+      "start": "2026-01-09T21:03:19Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:32246:1767992599"
+    },
+    "sessions": []
+  },
+  "57": {
+    "status": "active",
+    "current_session": {
+      "start": "2026-01-23T14:49:14Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:86278:1769179754"
+    },
+    "sessions": []
+  }
+}

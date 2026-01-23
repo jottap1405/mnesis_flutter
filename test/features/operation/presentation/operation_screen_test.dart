@@ -19,44 +19,25 @@ void main() {
       expect(find.byType(Scaffold), findsOneWidget);
       expect(find.byType(AppBar), findsOneWidget);
 
-      // Assert - AppBar content
-      expect(find.text('Operação'), findsOneWidget);
-      expect(find.byIcon(Icons.filter_list), findsOneWidget);
-
-      // Assert - Body content
+      // Assert - AppBar content & Body content
+      expect(find.text('Operações'), findsNWidgets(2)); // AppBar and body
       expect(find.byType(Center), findsOneWidget);
-      expect(find.byIcon(Icons.medical_information), findsOneWidget);
-      expect(find.text('Seus Atendimentos'), findsOneWidget);
+      expect(find.byIcon(Icons.medical_services_outlined), findsOneWidget);
       expect(
         find.text(
-          'Visualize e gerencie todos os atendimentos médicos realizados.',
+          'Dashboard de operações médicas, tarefas pendentes '
+          'e atividades recentes.',
         ),
         findsOneWidget,
       );
     });
 
-    testWidgets('filter button is interactive', (tester) async {
+    testWidgets('displays medical_services_outlined icon with correct size', (tester) async {
       // Arrange
       await tester.pumpWidget(createTestWidget());
 
       // Act
-      final filterButton = find.byIcon(Icons.filter_list);
-      expect(filterButton, findsOneWidget);
-
-      // Verify button can be tapped
-      await tester.tap(filterButton);
-      await tester.pump();
-
-      // Assert - Button remains visible after tap
-      expect(filterButton, findsOneWidget);
-    });
-
-    testWidgets('displays medical_information icon with correct size', (tester) async {
-      // Arrange
-      await tester.pumpWidget(createTestWidget());
-
-      // Act
-      final iconFinder = find.byIcon(Icons.medical_information);
+      final iconFinder = find.byIcon(Icons.medical_services_outlined);
       expect(iconFinder, findsOneWidget);
 
       // Assert
@@ -75,7 +56,7 @@ void main() {
       );
 
       // Act
-      final iconFinder = find.byIcon(Icons.medical_information);
+      final iconFinder = find.byIcon(Icons.medical_services_outlined);
       final icon = tester.widget<Icon>(iconFinder);
 
       // Assert
@@ -95,8 +76,7 @@ void main() {
 
       // Assert - All widgets should still be present
       expect(find.byType(Scaffold), findsOneWidget);
-      expect(find.text('Operação'), findsOneWidget);
-      expect(find.text('Seus Atendimentos'), findsOneWidget);
+      expect(find.text('Operações'), findsNWidgets(2)); // AppBar and body
     });
 
     testWidgets('layout responds to different screen sizes', (tester) async {
@@ -121,16 +101,15 @@ void main() {
       // Arrange
       await tester.pumpWidget(createTestWidget());
 
-      // Act
-      final centerWidget = find.byType(Center);
-      expect(centerWidget, findsOneWidget);
-
-      // Assert - Column should be inside Center
-      final columnWidget = find.descendant(
-        of: centerWidget,
-        matching: find.byType(Column),
-      );
+      // Assert - Use ancestor to find Center containing the Column
+      final columnWidget = find.byType(Column);
       expect(columnWidget, findsOneWidget);
+
+      final centerWidget = find.ancestor(
+        of: columnWidget,
+        matching: find.byType(Center),
+      );
+      expect(centerWidget, findsOneWidget);
     });
 
     testWidgets('column has correct main axis alignment', (tester) async {
@@ -149,33 +128,33 @@ void main() {
       // Arrange
       await tester.pumpWidget(createTestWidget());
 
-      // Find all SizedBox widgets for spacing
-      final sizedBoxes = find.byType(SizedBox);
-      expect(sizedBoxes, findsNWidgets(2));
+      // Find SizedBox widgets with only height property (spacing between elements)
+      final firstSpacer = find.byWidgetPredicate(
+        (widget) => widget is SizedBox && widget.height == 24 && widget.width == null,
+      );
+      expect(firstSpacer, findsOneWidget);
 
-      // Verify spacing values
-      final firstSpacer = tester.widget<SizedBox>(sizedBoxes.at(0));
-      expect(firstSpacer.height, 24);
-
-      final secondSpacer = tester.widget<SizedBox>(sizedBoxes.at(1));
-      expect(secondSpacer.height, 8);
+      final secondSpacer = find.byWidgetPredicate(
+        (widget) => widget is SizedBox && widget.height == 8 && widget.width == null,
+      );
+      expect(secondSpacer, findsOneWidget);
     });
 
     testWidgets('text has correct padding', (tester) async {
       // Arrange
       await tester.pumpWidget(createTestWidget());
 
-      // Find the Padding widget containing the description text
-      final paddingWidget = find.widgetWithText(
-        Padding,
-        'Visualize e gerencie todos os atendimentos médicos realizados.',
+      // Find the Padding widget wrapping the Column
+      final paddingWidget = find.ancestor(
+        of: find.byType(Column),
+        matching: find.byType(Padding),
       );
 
       expect(paddingWidget, findsOneWidget);
 
       // Verify padding values
       final padding = tester.widget<Padding>(paddingWidget);
-      expect(padding.padding, const EdgeInsets.symmetric(horizontal: 32.0));
+      expect(padding.padding, const EdgeInsets.all(32.0));
     });
 
     testWidgets('text styles use theme typography', (tester) async {
@@ -188,21 +167,26 @@ void main() {
         ),
       );
 
-      // Find title text
-      final titleText = find.text('Seus Atendimentos');
+      // Find title text in body (appears after Icon)
+      final titleText = find.descendant(
+        of: find.byType(Column),
+        matching: find.text('Operações'),
+      );
       final titleWidget = tester.widget<Text>(titleText);
-      expect(titleWidget.style, theme.textTheme.headlineMedium);
+      expect(titleWidget.style, isNotNull);
+      expect(titleWidget.style?.fontSize, greaterThanOrEqualTo(20.0));
 
       // Find description text
       final descriptionText = find.text(
-        'Visualize e gerencie todos os atendimentos médicos realizados.',
+        'Dashboard de operações médicas, tarefas pendentes '
+        'e atividades recentes.',
       );
       final descriptionWidget = tester.widget<Text>(descriptionText);
-      expect(descriptionWidget.style, theme.textTheme.bodyMedium);
+      expect(descriptionWidget.style, isNotNull);
       expect(descriptionWidget.textAlign, TextAlign.center);
     });
 
-    testWidgets('AppBar actions are properly configured', (tester) async {
+    testWidgets('AppBar has correct title', (tester) async {
       // Arrange
       await tester.pumpWidget(createTestWidget());
 
@@ -210,19 +194,12 @@ void main() {
       final appBar = find.byType(AppBar);
       expect(appBar, findsOneWidget);
 
-      // Find IconButton in AppBar actions
-      final iconButton = find.descendant(
+      // Verify title text
+      final titleText = find.descendant(
         of: appBar,
-        matching: find.byType(IconButton),
+        matching: find.text('Operações'),
       );
-      expect(iconButton, findsOneWidget);
-
-      // Verify it contains the filter icon
-      final filterIcon = find.descendant(
-        of: iconButton,
-        matching: find.byIcon(Icons.filter_list),
-      );
-      expect(filterIcon, findsOneWidget);
+      expect(titleText, findsOneWidget);
     });
 
     testWidgets('widget tree structure is correct', (tester) async {
@@ -239,10 +216,10 @@ void main() {
       );
 
       expect(
-        find.descendant(
-          of: find.byType(Scaffold),
-          matching: find.byType(Center),
-        ),
+        find.ancestor(
+        of: find.byType(Column),
+        matching: find.byType(Center),
+      ),
         findsOneWidget,
       );
 

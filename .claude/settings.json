@@ -1,0 +1,66 @@
+{
+  "env": {
+    "FLOWFORGE_ENABLED": "true",
+    "FLOWFORGE_STRICT_MODE": "true",
+    "FLOWFORGE_PORTABLE": "true"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "./.claude/statusline.py"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.flowforge/hooks/user-prompt-submit.sh",
+            "timeout": 60
+          },
+          {
+            "type": "command",
+            "command": "./.flowforge/hooks/pr-review-enforcer.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.flowforge/hooks/check-agent-requirement.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.flowforge/hooks/log-agent-usage.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "./.flowforge/hooks/validate-session-agents.sh",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}

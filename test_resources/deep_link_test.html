@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mnesis Deep Link Testing</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #e0e0e0;
+        }
+        h1 {
+            color: #00E5FF;
+            border-bottom: 2px solid #00E5FF;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #00E5FF;
+            margin-top: 30px;
+        }
+        .link-section {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        a {
+            display: block;
+            padding: 12px 20px;
+            margin: 10px 0;
+            background: #2a2a2a;
+            color: #00E5FF;
+            text-decoration: none;
+            border-radius: 4px;
+            border: 1px solid #00E5FF;
+            transition: all 0.3s;
+        }
+        a:hover {
+            background: #00E5FF;
+            color: #0a0a0a;
+        }
+        .icon {
+            margin-right: 10px;
+        }
+        .info {
+            background: #1a1a1a;
+            border-left: 4px solid #00E5FF;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        code {
+            background: #2a2a2a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #00E5FF;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔗 Mnesis Deep Link Testing</h1>
+
+    <div class="info">
+        <strong>Instructions:</strong> Open this HTML file on your Android device's browser
+        while the Mnesis app is installed. Click on any link below to test deep linking.
+    </div>
+
+    <h2>Custom Scheme Links (mnesis://)</h2>
+    <div class="link-section">
+        <p>These links use the custom <code>mnesis://</code> scheme and work without domain verification:</p>
+        <a href="mnesis://chat">
+            <span class="icon">💬</span>Chat Screen
+        </a>
+        <a href="mnesis://new">
+            <span class="icon">➕</span>New Consultation
+        </a>
+        <a href="mnesis://operation">
+            <span class="icon">🏥</span>Operation Screen
+        </a>
+        <a href="mnesis://admin">
+            <span class="icon">⚙️</span>Admin Panel
+        </a>
+    </div>
+
+    <h2>App Links (https://mnesis.app)</h2>
+    <div class="link-section">
+        <p>These links use HTTPS and require domain verification. They will work once
+        <code>assetlinks.json</code> is deployed to the server:</p>
+        <a href="https://mnesis.app/chat">
+            <span class="icon">💬</span>Chat Screen (HTTPS)
+        </a>
+        <a href="https://mnesis.app/new">
+            <span class="icon">➕</span>New Consultation (HTTPS)
+        </a>
+        <a href="https://mnesis.app/operation">
+            <span class="icon">🏥</span>Operation Screen (HTTPS)
+        </a>
+        <a href="https://mnesis.app/admin">
+            <span class="icon">⚙️</span>Admin Panel (HTTPS)
+        </a>
+    </div>
+
+    <div class="info">
+        <strong>Note:</strong> If the app doesn't open automatically, you may need to:
+        <ul>
+            <li>Ensure the Mnesis app is installed</li>
+            <li>Clear browser defaults in Android settings</li>
+            <li>For HTTPS links, ensure domain verification is complete</li>
+        </ul>
+    </div>
+
+    <h2>Testing from Desktop</h2>
+    <div class="link-section">
+        <p>To test from your development machine, use ADB commands:</p>
+        <code>adb shell am start -W -a android.intent.action.VIEW -d "mnesis://chat" com.mnesis.mnesis_flutter</code>
+        <br><br>
+        <p>Or use the provided test script:</p>
+        <code>./scripts/test-deep-links.sh</code>
+    </div>
+</body>
+</html>

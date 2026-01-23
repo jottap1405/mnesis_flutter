@@ -221,6 +221,20 @@ class MnesisTextStyles {
   // LABEL STYLES (Buttons, Input Labels)
   // ============================================================================
 
+  /// Button text style.
+  ///
+  /// Use for all button labels.
+  ///
+  /// **Size**: 16px
+  /// **Weight**: Semi-bold (600)
+  /// **Letter Spacing**: 0.5px
+  static const TextStyle button = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.5,
+    height: 1.2,
+  );
+
   /// Label large style - primary button text.
   ///
   /// Use for:

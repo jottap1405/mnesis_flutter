@@ -1,0 +1,15 @@
+{
+  "providers": [
+    {
+      "name": "json",
+      "type": "json",
+      "enabled": true,
+      "default": true,
+      "settings": {
+        "filePath": ".flowforge/tasks.json",
+        "autoSave": true,
+        "saveInterval": 5000
+      }
+    }
+  ]
+}

@@ -88,6 +88,43 @@ class MnesisColors {
   /// **Hex**: #FF7043 with 30% opacity (0x4D)
   static const Color orangeDisabled = Color(0x4DFF7043);
 
+  /// Orange ripple effect color (20% opacity).
+  ///
+  /// Use for:
+  /// - Button ripple effects
+  /// - Interactive feedback overlays
+  ///
+  /// **Hex**: #FF7043 with 20% opacity (0x33)
+  static const Color orange20 = Color(0x33FF7043);
+
+  /// Orange medium opacity color (50% opacity).
+  ///
+  /// Use for:
+  /// - Switch track when selected
+  /// - Medium emphasis overlays
+  ///
+  /// **Hex**: #FF7043 with 50% opacity (0x80)
+  static const Color orange50 = Color(0x80FF7043);
+
+  /// Disabled state opacity.
+  ///
+  /// Use for:
+  /// - Disabled button backgrounds
+  /// - Disabled button text
+  /// - Disabled interactive elements
+  ///
+  /// **Value**: 40% opacity
+  static const double opacityDisabled = 0.4;
+
+  /// Hover state opacity.
+  ///
+  /// Use for:
+  /// - Hover overlay effects
+  /// - Interactive feedback
+  ///
+  /// **Value**: 50% opacity
+  static const double opacityHover = 0.5;
+
   // ============================================================================
   // BACKGROUND COLORS
   // ============================================================================
