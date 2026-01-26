@@ -112,20 +112,68 @@ class DatabaseHelper {
 
   /// Handles database upgrades for future versions.
   ///
-  /// Currently a no-op as we're on version 1.
-  /// Future versions will implement migration logic here.
+  /// Implements migration logic for each database version upgrade.
+  /// Migrations are applied incrementally to support upgrading from any version.
   ///
   /// [oldVersion] The previous database version
   /// [newVersion] The new database version
+  ///
+  /// **Version History:**
+  /// - v1: Initial version (messages table only)
+  /// - v2: Added patients_cache, attachments_cache, auth_tokens tables
+  ///
+  /// Throws [DatabaseException] if migration fails.
   Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
-    // Version 1: Initial version, no upgrades needed yet
     _logger.i('Database upgrade from v$oldVersion to v$newVersion');
-    
-    // Future migration logic will go here
-    // Example for future reference:
-    // if (oldVersion < 2) {
-    //   await db.execute('ALTER TABLE messages ADD COLUMN new_field TEXT');
-    // }
+
+    try {
+      // Migration from v1 to v2: Add cache tables
+      if (oldVersion < 2) {
+        _logger.i('Migrating to v2: Adding cache tables');
+
+        // Create patients_cache table
+        await db.execute(DatabaseConstants.createPatientsCacheTable);
+        _logger.d('Created patients_cache table');
+
+        // Create attachments_cache table
+        await db.execute(DatabaseConstants.createAttachmentsCacheTable);
+        _logger.d('Created attachments_cache table');
+
+        // Create auth_tokens table
+        await db.execute(DatabaseConstants.createAuthTokensTable);
+        _logger.d('Created auth_tokens table');
+
+        // Create patients_cache indexes
+        await db.execute(DatabaseConstants.createPatientsActiveIndex);
+        await db.execute(DatabaseConstants.createPatientsSupabaseIdIndex);
+        await db.execute(DatabaseConstants.createPatientsRecentIndex);
+        await db.execute(DatabaseConstants.createPatientsUpcomingIndex);
+        await db.execute(DatabaseConstants.createPatientsSyncStatusIndex);
+        _logger.d('Created 5 patients_cache indexes');
+
+        // Create attachments_cache indexes
+        await db.execute(DatabaseConstants.createAttachmentsActiveIndex);
+        await db.execute(DatabaseConstants.createAttachmentsPatientIdIndex);
+        await db.execute(DatabaseConstants.createAttachmentsSupabaseIdIndex);
+        await db.execute(DatabaseConstants.createAttachmentsDownloadStatusIndex);
+        await db.execute(DatabaseConstants.createAttachmentsSyncStatusIndex);
+        _logger.d('Created 5 attachments_cache indexes');
+
+        // Create auth_tokens indexes
+        await db.execute(DatabaseConstants.createAuthTokensActiveIndex);
+        await db.execute(DatabaseConstants.createAuthTokensUserIdIndex);
+        await db.execute(DatabaseConstants.createAuthTokensExpiresAtIndex);
+        await db.execute(DatabaseConstants.createAuthTokensDeviceIdIndex);
+        _logger.d('Created 4 auth_tokens indexes');
+
+        _logger.i('v2 migration completed: 3 tables and 14 indexes created');
+      }
+
+      _logger.i('Database upgrade completed successfully');
+    } catch (e, stackTrace) {
+      _logger.e('Database migration failed', error: e, stackTrace: stackTrace);
+      rethrow;
+    }
   }
 
   // Public methods for testing support

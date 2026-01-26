@@ -24,7 +24,7 @@
     },
     {
       "id": "MNESIS-058",
-      "github_issue": 58,
+      "github_issue": 63,
       "title": "Task 1.1: Supabase authentication setup",
       "description": "MVP Foundation - Week 1",
       "epic": "mvp-auth",
@@ -105,7 +105,7 @@
     },
     {
       "id": "MNESIS-061",
-      "github_issue": 61,
+      "github_issue": 64,
       "title": "Task 1.4: SQLite cache layer foundation",
       "description": "MVP Foundation - Week 1",
       "epic": "mvp-cache",

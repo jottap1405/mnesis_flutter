@@ -110,5 +110,23 @@
       "instance_id": "jottap@Mac-mini-de-Jotta.local:90307:1769430294"
     },
     "sessions": []
+  },
+  "63": {
+    "status": "active",
+    "current_session": {
+      "start": "2026-01-26T12:29:42Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:91398:1769430582"
+    },
+    "sessions": []
+  },
+  "64": {
+    "status": "active",
+    "current_session": {
+      "start": "2026-01-26T13:07:12Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:98494:1769432832"
+    },
+    "sessions": []
   }
 }

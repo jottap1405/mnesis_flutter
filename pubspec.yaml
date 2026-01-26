@@ -44,6 +44,9 @@ dependencies:
   retrofit_generator: ^8.0.6
   json_annotation: ^4.8.1
 
+  # Authentication
+  supabase_flutter: ^2.0.0
+
   # Database (SQLite for chat cache only)
   sqflite: ^2.3.0
   path: ^1.8.3
@@ -85,6 +88,7 @@ dev_dependencies:
 
   # Testing
   mocktail: ^1.0.1
+  sqflite_common_ffi: ^2.3.0+2
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
