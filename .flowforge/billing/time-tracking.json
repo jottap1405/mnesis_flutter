@@ -101,5 +101,14 @@
       "instance_id": "jottap@Mac-mini-de-Jotta.local:86278:1769179754"
     },
     "sessions": []
+  },
+  "58": {
+    "status": "active",
+    "current_session": {
+      "start": "2026-01-26T12:24:54Z",
+      "user": "jottap",
+      "instance_id": "jottap@Mac-mini-de-Jotta.local:90307:1769430294"
+    },
+    "sessions": []
   }
 }
